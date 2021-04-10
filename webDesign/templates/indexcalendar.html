@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+.header {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   background-color: blue;
+   color: white;
+   text-align: center;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
+
+#content {
+    position:absolute;
+    left:40%;
+    top:30%;
+}
+</style>
+
+<body>
+
+<div class="header">
+    <h1>Display a Month Input Control</h1>
+</div>
+
+<form action="/action_page.php">
+    <div id="content">
+        <label for="bdaymonth">Awarded (month and year)</label>
+        <br><br>
+        <input type="month" id="bdaymonth" name="bdaymonth">
+        <br><br>
+        <input type="submit">
+    </div>
+</form>
+
+<div class="footer">
+  <p>Note: This page is not supported in Firefox, Safari or Internet Explorer 11 and earlier versions.</p>
+</div>
+
+</body>
+</html>
