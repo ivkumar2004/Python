@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+$def with (file_data)
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -107,7 +107,7 @@ body {
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
+  color: black;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
@@ -147,18 +147,11 @@ img.hover-shadow {
 <h2 style="text-align:center">Lightbox</h2>
 
 <div class="row">
-  <div class="column">
-    <img src="./static/sample.jpeg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="./static/april2021/download.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="img_mountains.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="img_lights.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
-  </div>
+  $for award_type in file_data["Lightbox"].keys():
+    <div class="column">
+      <marquee scrollamount="5" behavior="sliding">$award_type</marquee>
+      <img src=$file_data["Lightbox"][award_type] style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+    </div>
 </div>
 
 <div id="myModal" class="modal">
@@ -191,22 +184,8 @@ img.hover-shadow {
     <div class="caption-container">
       <p id="caption"></p>
     </div>
-
-
-    <div class="column">
-      <img class="demo cursor" src="img_nature_wide.jpg" style="width:100%" onclick="currentSlide(1)" alt="Nature and sunrise">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="img_snow_wide.jpg" style="width:100%" onclick="currentSlide(2)" alt="Snow">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="img_mountains_wide.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="img_lights_wide.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
-    </div>
   </div>
-</div>
+</div>  
 
 <script>
 function openModal() {
